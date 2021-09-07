@@ -39,13 +39,14 @@ class Cases:
 
         self.wb.save(self.nameOfWb)
 
+def main():
+    url = "https://www.nytimes.com/interactive/2021/us/hawaii-covid-cases.html"
 
-url = "https://www.nytimes.com/interactive/2021/us/hawaii-covid-cases.html"
+    case = Cases(None, None, "Covid Cases Hawaii.xlsx", "Covid Cases Hawaii")
+    case.getWebsite(url)
+    day, cases, total = case.getInfo()
+    case.printInfo(day, cases, total)
+    case.outPutInfo(day, cases, total)
 
-case = Cases(None, None, "Covid Cases Hawaii.xlsx", "Covid Cases Hawaii")
-case.getWebsite(url)
-day, cases, total = case.getInfo()
-case.printInfo(day, cases, total)
-case.outPutInfo(day, cases, total)
-
-
+if __name__ == '__main__':
+    main()
